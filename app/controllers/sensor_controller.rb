@@ -73,7 +73,7 @@ class SensorController < ApplicationController
       )
       json = Jbuilder.encode do |j|
         j.application_code(application_code)
-        j.sensor_datas(sensors)
+        j.sensors(sensors)
       end
       render json: json
     else
@@ -140,6 +140,38 @@ class SensorController < ApplicationController
       sensor.save if sensor.valid?
     end
     render json: { :application_code => 200 }
+  end
+
+=begin
+  @apiVersion 0.1.0
+
+  @apiGroup Sensor
+  @api {get} /sensor/type
+  @apiName SensorType
+  @apiDescription get types of sensor
+
+  @apiSuccess {Number} id id of sensor type
+  @apiSuccess {String} name name of sensor type
+
+  @apiSuccessExample {json} Success-Response:
+    {
+      "types": [
+        {
+          "id": 1,
+          "name": "humidity"
+        }
+      ],
+      "application_code": 200
+    }
+=end
+  def type
+    types = SensorType.all
+    json = []
+    types.each do |type|
+      json.push(type.as_json['attributes'])
+    end
+
+    render json: { :types => json, :application_code => 200 }
   end
 
 end
