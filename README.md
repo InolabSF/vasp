@@ -1,21 +1,22 @@
-### generate model
+## Cheat sheet
+
+### Generate model
 ```
-# example
-$ rails generate model SensorData sensor_id:integer value:float lat:float long:float user_id:integer timestamp:datetime
+$ rails generate model Hoge fuga_id:integer foo:float bar:float timestamp:datetime
 ```
 
-### migration
+### Migration
 ```
 $ rake db:migrate
 ```
 
-### generate controller
+### Generate controller
 ```
 # example
 rails generate controller YOUR_CONTROLLER_NAME
 ```
 
-### manual cron
+### Manual cron
 ```
 # example (local)
 $ rails runner Tasks::Hoge.execute
@@ -23,7 +24,7 @@ $ rails runner Tasks::Hoge.execute
 $ heroku run rails runner Tasks::Hoge.execute
 ```
 
-### automatical cron
+### Automatic cron
 ```
 # example (local)
 # register
@@ -40,7 +41,7 @@ $ heroku run rake update_feed
 $ heroku addons:open scheduler
 ```
 
-### create app on Heroku
+### Create app on Heroku
 ```
 $ bundle exec heroku create YOUR_APP
 ```
@@ -56,7 +57,7 @@ HEROKU_POSTGRESQL_(COLOR)_URL: postgres://〜
 $ heroku pg:promote HEROKU_POSTGRESQL_(COLOR)_URL --app YOUR_APP
 ```
 
-### deploy Heroku
+### Deploy Heroku
 ```
 $ git push heroku master
 $ heroku run rake db:migrate
