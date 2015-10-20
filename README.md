@@ -1,3 +1,13 @@
+# vasp_project
+
+
+## Server
+
+local: http://localhost:3000
+
+dev: https://connected-bicycle-platform.herokuapp.com
+
+
 ## Cheat sheet
 
 ### Generate model
