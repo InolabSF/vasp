@@ -1,3 +1,6 @@
+require './lib/assets/math_utility'
+
+
 class SensorController < ApplicationController
 
 =begin
@@ -44,31 +47,33 @@ class SensorController < ApplicationController
       ]
     }
 =end
-  def index
+  def get
     # get latitude, longitude
     lat = params[:lat].to_f
     lng = params[:lng].to_f
     radius = params[:radius].to_f
-    sensor_type = params[:sensor_type].to_i
+    type = params[:type].to_i
 
     # calculate distance of latitude and longitude degree
     lat_degree = MathUtility.get_lat_degree(lat, lng, radius)
     lng_degree = MathUtility.get_lng_degree(lat, lng, radius)
     is_return_json = !(lat_degree == 0 || lng_degree == 0)
+    application_code = is_return_json ? 200 : 400
 
     # response
     if is_return_json
-      datas = Sensor.where(
-        sensor_id: sensor_type,
+      sensors = Sensor.where(
+        type: type,
         lat: (lat-lat_degree)..(lat+lat_degree),
         lng: (lng-lng_degree)..(lng+lng_degree)
       )
       json = Jbuilder.encode do |j|
-        j.sensor_datas(datas)
+        j.application_code(application_code)
+        j.sensor_datas(sensors)
       end
       render json: json
     else
-      render json: { }
+      render json: { :application_code => application_code }
     end
   end
 

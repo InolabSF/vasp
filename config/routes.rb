@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  get 'sensor', :to => 'sensor#index'
+  get 'sensor', :to => 'sensor#get'
+  post 'sensor', :to => 'sensor#post'
 end
