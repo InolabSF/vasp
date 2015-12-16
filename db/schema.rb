@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020174625) do
+ActiveRecord::Schema.define(version: 20151216012449) do
+
+  create_table "airs", force: :cascade do |t|
+    t.float    "SO2"
+    t.float    "Ozone_S"
+    t.float    "south"
+    t.float    "north"
+    t.float    "west"
+    t.float    "east"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sensors", force: :cascade do |t|
     t.integer  "type"

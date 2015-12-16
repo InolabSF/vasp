@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SO2: 1.5
+  Ozone_S: 1.5
+  south: 1.5
+  north: 1.5
+  west: 1.5
+  east: 1.5
+
+two:
+  SO2: 1.5
+  Ozone_S: 1.5
+  south: 1.5
+  north: 1.5
+  west: 1.5
+  east: 1.5
