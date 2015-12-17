@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  air: 1
+  lat: 1.5
+  lng: 1.5
+  uuid: MyString
+  timestamp: 2015-12-16 17:26:58
+
+two:
+  air: 1
+  lat: 1.5
+  lng: 1.5
+  uuid: MyString
+  timestamp: 2015-12-16 17:26:58

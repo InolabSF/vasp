@@ -1,2 +1,0 @@
-class AirControllerController < ApplicationController
-end

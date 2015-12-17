@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   post 'sensor', :to => 'sensor#post'
   get 'sensor/type'
   get 'air', :to => 'air#get'
+  get 'user', :to => 'user#get'
+  post 'user', :to => 'user#post'
 end

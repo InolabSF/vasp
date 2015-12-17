@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216012449) do
+ActiveRecord::Schema.define(version: 20151217012658) do
 
   create_table "airs", force: :cascade do |t|
     t.float    "SO2"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20151216012449) do
     t.float    "lat"
     t.float    "lng"
     t.float    "weight"
+    t.datetime "timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer  "air"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "uuid"
+    t.string   "name"
     t.datetime "timestamp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
