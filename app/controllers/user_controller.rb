@@ -19,10 +19,15 @@ class UserController < ApplicationController
 
     # response
     if do_return_json
+      start_date = 12.hours.ago
+      end_date = DateTime.now
+
       users = User.where(
         lat: (lat-lat_degree)..(lat+lat_degree),
-        lng: (lng-lng_degree)..(lng+lng_degree)
+        lng: (lng-lng_degree)..(lng+lng_degree),
+        timestamp: start_date..end_date
       )
+
       json = Jbuilder.encode do |j|
         j.application_code(application_code)
         j.users(users)
