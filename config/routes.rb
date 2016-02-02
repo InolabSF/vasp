@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'air', :to => 'air#get'
   get 'user', :to => 'user#get'
   post 'user', :to => 'user#post'
+  get 'square', :to => 'square#get'
 end
