@@ -40,10 +40,11 @@ class SquareList
     def include?(lat, lng)
       latitude = lat.to_f
       longitude = lng.to_f
-      (latitude  >= @square.lat - @square.radius &&
-       latitude  <= @square.lat + @square.radius &&
-       longitude >= @square.lng - @square.radius &&
-       longitude <= @square.lng + @square.radius)
+      offset = @square.radius / 2.0
+      (latitude  >= @square.lat - offset &&
+       latitude  <= @square.lat + offset &&
+       longitude >= @square.lng - offset &&
+       longitude <= @square.lng + offset)
     end
 
     def average
