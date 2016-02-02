@@ -40,7 +40,7 @@ class SquareList
     def include?(lat, lng)
       latitude = lat.to_f
       longitude = lng.to_f
-      offset = @square.radius / 2.0
+      offset = @square.radius
       (latitude  >= @square.lat - offset &&
        latitude  <= @square.lat + offset &&
        longitude >= @square.lng - offset &&
