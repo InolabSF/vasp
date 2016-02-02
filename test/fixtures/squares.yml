@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alcohol: 1.5
+  ambient: 1.5
+  co: 1.5
+  co2: 1.5
+  humidity: 1.5
+  no2: 1.5
+  noise: 1.5
+  ozone_s: 1.5
+  radiation: 1.5
+  so2: 1.5
+  temp_c: 1.5
+  toluene: 1.5
+  uv: 1
+  lat: 1.5
+  lng: 1.5
+  radius: 1.5
+  pressure: 1.5
+  time: 1.5
+
+two:
+  alcohol: 1.5
+  ambient: 1.5
+  co: 1.5
+  co2: 1.5
+  humidity: 1.5
+  no2: 1.5
+  noise: 1.5
+  ozone_s: 1.5
+  radiation: 1.5
+  so2: 1.5
+  temp_c: 1.5
+  toluene: 1.5
+  uv: 1
+  lat: 1.5
+  lng: 1.5
+  radius: 1.5
+  pressure: 1.5
+  time: 1.5

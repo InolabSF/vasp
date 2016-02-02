@@ -11,6 +11,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'jquery-rails'
 
+gem 'faraday'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

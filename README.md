@@ -5,7 +5,7 @@
 
 local: http://localhost:3000
 
-dev: https://connected-bicycle-platform.herokuapp.com
+dev: https://vasp.herokuapp.com
 
 
 ## Cheat sheet

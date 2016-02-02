@@ -4,17 +4,22 @@ class AirController < ApplicationController
 
   def get
     do_return_json = true
-    application_code = 200
+
+    #south = params[:south].to_f
+    #north = params[:north].to_f
+    #west = params[:west].to_f
+    #east = params[:east].to_f
+    #do_return_json = false if (!(south.is_a?(Float) || south.is_a?(Fixnum)) || !(north.is_a?(Float) || north.is_a?(Fixnum)) || !(west.is_a?(Float) || west.is_a?(Fixnum)) || !(east.is_a?(Float) || east.is_a?(Fixnum)))
 
     if do_return_json
       airs = Air.all
       json = Jbuilder.encode do |j|
-        j.application_code(application_code)
+        j.application_code(200)
         j.airs(airs)
       end
       render json: json
     else
-      render json: { :application_code => application_code }
+      render json: { :application_code => 400 }
     end
   end
 

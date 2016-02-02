@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217012658) do
+ActiveRecord::Schema.define(version: 20160201214912) do
 
   create_table "airs", force: :cascade do |t|
     t.float    "SO2"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20151217012658) do
     t.float    "lng"
     t.float    "weight"
     t.datetime "timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "squares", force: :cascade do |t|
+    t.float    "ambient"
+    t.float    "co"
+    t.float    "co2"
+    t.float    "humidity"
+    t.float    "no2"
+    t.float    "ozone_s"
+    t.float    "so2"
+    t.float    "temp_c"
+    t.float    "uv"
+    t.float    "lat"
+    t.float    "lng"
+    t.float    "radius"
+    t.float    "pressure"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
