@@ -7,7 +7,20 @@ class SquareList
 
     def initialize(radius, lat, lng)
       @square = Square.new
+
       @square.radius = radius
+
+      lat = Rational("#{lat}").floor(4).to_f
+      odd = (lat * 10000.0).to_i % (radius*10000.0).to_i
+      @square.lat =  lat - 0.0001 * odd + 0.0001 * (radius*10000.0).to_i / 2.0
+
+      lng = Rational("#{lng}").floor(4).to_f
+      odd = (lng * 10000.0).to_i % (radius*10000.0).to_i
+      @square.lng =  lng - 0.0001 * odd + 0.0001 * (radius*10000.0).to_i / 2.0
+
+      #@square.lat = lat.to_f
+      #@square.lng = lng.to_f
+
       @square.ambient = 0
       @square.co = 0
       @square.co2 = 0
@@ -17,8 +30,6 @@ class SquareList
       @square.so2 = 0
       @square.temp_c = 0
       @square.uv = 0
-      @square.lat = lat.to_f
-      @square.lng = lng.to_f
       @square.pressure = 0
 
       @count = 0
