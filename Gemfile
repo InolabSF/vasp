@@ -31,6 +31,17 @@ end
 group :test do
   gem 'autodoc'
   gem 'redcarpet'
+
+  #gem 'minitest'
+  #gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'minitest-spec-rails'
+  gem 'minitest-doc_reporter'
+  gem 'minitest-stub_any_instance'
+  gem 'minitest-bang'
+  gem 'minitest-line'
+  #gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 group :production do
