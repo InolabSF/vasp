@@ -73,3 +73,8 @@ $ git push heroku master
 $ heroku run rake db:migrate
 $ bundle exec heroku open
 ```
+
+### Test
+```
+$ bundle exec rake test
+```

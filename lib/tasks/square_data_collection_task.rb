@@ -76,39 +76,44 @@ end
 class Tasks::SquareDataCollectionTask
 
   def self.collect_all
-    radius = 0.0025
+    # get data from parse-server
     all_datas = SquareDataCollector.get_data_from_parse(DateTime.now, DateTime.new(2000, 1, 1))
-    square_lists = []
 
-    # sum vasp data into radius x radius square
-    all_datas.each do |data|
-      is_new_square = true
+    # delete
+    Square.delete_all
 
-      lat = data['latitude']
-      lng = data['longitude']
-      square_lists.each do |square_list|
-        if square_list.include?(lat, lng)
-          is_new_square = false
+    # insert
+    radiuses = [0.0025, 0.0125, 0.0625, 0.3125, 1.5625]
+    radiuses.each do |radius|
+      square_lists = []
+
+      # sum vasp data into radius x radius square
+      all_datas.each do |data|
+        is_new_square = true
+
+        lat = data['latitude']
+        lng = data['longitude']
+        square_lists.each do |square_list|
+          if square_list.include?(lat, lng)
+            is_new_square = false
+            square_list.add_data(data)
+            break
+          end
+        end
+
+        if is_new_square
+          square_list = SquareList.new(radius, lat, lng)
           square_list.add_data(data)
-          break
+          square_lists.push(square_list)
         end
       end
 
-      if is_new_square
-        square_list = SquareList.new(radius, lat, lng)
-        square_list.add_data(data)
-        square_lists.push(square_list)
+      # calculate average of each square
+      square_lists.each do |square_list|
+        square_list.average
+        square_list.square.save if square_list.square.valid?
       end
     end
-
-    # update all data
-    Square.delete_all
-      # calculate average of each square
-    square_lists.each do |square_list|
-      square_list.average
-      square_list.square.save if square_list.square.valid?
-    end
-
   end
 
 end
