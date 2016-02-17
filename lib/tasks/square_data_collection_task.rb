@@ -77,13 +77,19 @@ class Tasks::SquareDataCollectionTask
 
   def self.collect_all
     # get data from parse-server
-    all_datas = SquareDataCollector.get_data_from_parse(DateTime.now, DateTime.new(2000, 1, 1))
+    all_datas = []
+    #class_names = ['testData']
+    class_names = ['testData', 'dummy_data']
+    class_names.each do |class_name|
+      all_datas += SquareDataCollector.get_data_from_parse(class_name, DateTime.now, DateTime.new(2000, 1, 1))
+    end
 
     # delete
     Square.delete_all
 
     # insert
-    radiuses = [0.0025, 0.0125, 0.0625, 0.3125, 1.5625]
+    #radiuses = [0.0025, 0.0125, 0.0625, 0.3125, 1.5625]
+    radiuses = [0.0025]
     radiuses.each do |radius|
       square_lists = []
 

@@ -7,7 +7,7 @@ require 'date'
 module SquareDataCollector
 
   # get data from parse
-  def self.get_data_from_parse(end_date, start_date)
+  def self.get_data_from_parse(class_name, end_date, start_date)
     clinet = ParseClient.new('b0yiVianh3FBoPwXycBEWNBDbhkvsVT4eRDzP6it', 'Cl5kJTAIl8gG18oAAiaQdeuNQtVDQIRplhede1XF')
 
     # login
@@ -22,7 +22,7 @@ module SquareDataCollector
       # request to parse
       params = { 'limit' => '1000', 'order' => '-time' }
       params['where'] = "{\"time\":{\"$lte\": #{date_index.to_time.to_f}}}"
-      json = clinet.get_class('testData', session_token, params)
+      json = clinet.get_class(class_name, session_token, params)
       are_results = (json['results'] && json['results'].length > 0)
 
       # convert results to human readable unit of measurement
