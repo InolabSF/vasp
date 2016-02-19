@@ -6,7 +6,7 @@ class SquareController < ApplicationController
     do_return_json = true
 
     radius = params[:radius].to_f
-    radius = 0.0025 if radius == nil || radius < 0.0025
+    radius = 0.001 if radius == nil || radius < 0.001
 
 #    south = params[:south].to_f
 #    north = params[:north].to_f
