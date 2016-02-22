@@ -89,7 +89,7 @@ class Tasks::SquareDataCollectionTask
 
     # insert
     #radiuses = [0.0010]
-    radiuses = [0.0010, 0.0050, 0.0250, 0.1250, 0.6250]
+    radiuses = [0.0010, 0.0050, 0.0250, 0.1250, 0.6250, 3.1250]
     radiuses.each do |radius|
       square_lists = []
 
