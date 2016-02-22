@@ -88,9 +88,8 @@ class Tasks::SquareDataCollectionTask
     Square.delete_all
 
     # insert
-    #radiuses = [0.0025, 0.0125, 0.0625, 0.3125, 1.5625]
-    #radiuses = [0.0025]
-    radiuses = [0.0010]
+    #radiuses = [0.0010]
+    radiuses = [0.0010, 0.0050, 0.0250, 0.1250, 0.6250]
     radiuses.each do |radius|
       square_lists = []
 

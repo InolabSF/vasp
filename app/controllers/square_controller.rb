@@ -2,36 +2,28 @@ class SquareController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
-  def get
-    do_return_json = true
-
+  def index
+    # size of square
     radius = params[:radius].to_f
     radius = 0.001 if radius == nil || radius < 0.001
 
-#    south = params[:south].to_f
-#    north = params[:north].to_f
-#    west = params[:west].to_f
-#    east = params[:east].to_f
-#    do_return_json = false if (!(south.is_a?(Float) || south.is_a?(Fixnum)) ||
-#                               !(north.is_a?(Float) || north.is_a?(Fixnum)) ||
-#                               !(west.is_a?(Float)  || west.is_a?(Fixnum))  ||
-#                               !(east.is_a?(Float)  || east.is_a?(Fixnum)))
+    # range to get
+    south = params[:south] ? params[:south].to_f : -90.0
+    north = params[:north] ? params[:north].to_f : 90.0
+    west = params[:west] ? params[:west].to_f : -180.0
+    east = params[:east] ? params[:east].to_f : 180.0
 
-    if do_return_json
-      squares = Square.where(
-        radius: radius
-        #lat: south..north,
-        #lng: west..east
-      )
+    squares = Square.where(
+      radius: radius,
+      lat: south..north,
+      lng: west..east
+    )
 
-      json = Jbuilder.encode do |j|
-        j.application_code(200)
-        j.squares(squares)
-      end
-      render json: json
-    else
-      render json: { :application_code => 400 }
+    json = Jbuilder.encode do |j|
+      j.application_code(200)
+      j.squares(squares)
     end
+    render json: json
   end
 
 end
