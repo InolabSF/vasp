@@ -6,7 +6,7 @@ describe SquareController do
   }
 
   it "#GET /square - return all squares" do
-    get :get
+    get :index
     res = JSON.parse(response.body)
     res['application_code'].must_equal 200
     res['squares'].must_be_kind_of Array
